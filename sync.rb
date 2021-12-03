@@ -2,8 +2,6 @@ require 'net/http'
 require 'cgi'
 require 'json'
 
-ws = ENV['GITHUB_WORKSPACE']
-
 
 def status
     puts "Checking submitted answers..."
@@ -28,6 +26,7 @@ def completed_days input
 end
 
 def build
+    ws = ENV['GITHUB_WORKSPACE']
     puts "Compiling all days..."
     `rm -rf #{ws}/bin`
     `mkdir #{ws}/bin`
@@ -35,6 +34,7 @@ def build
 end
 
 def answered_days
+    ws = ENV['GITHUB_WORKSPACE']
     vals = `ls #{ws}/bin`
     vals.split ' '
 end
