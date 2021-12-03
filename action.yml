@@ -5,8 +5,10 @@ inputs:
   AOC_SESSION_COOKIE:
     description: Session cookie
     required: true
+  AOC_USER:
+    description: User ID 
   AOC_YEAR:
-    description: The Device ID of the Particle device
+    description: Year of competition
     required: true
 runs:
   using: 'docker'

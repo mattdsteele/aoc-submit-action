@@ -8,7 +8,7 @@ ws = ENV['GITHUB_WORKSPACE']
 def status
     puts "Checking submitted answers..."
     year = ENV['AOC_YEAR']
-    user_id = 31777
+    user_id = 31777 # TODO replace with env variable
     url = "https://adventofcode.com/#{year}/leaderboard/private/view/#{user_id}.json"
 
     uri = URI(url)
