@@ -30,7 +30,7 @@ def build
     puts "Compiling all days..."
     `rm -rf #{ws}/bin`
     `mkdir #{ws}/bin`
-    `go build -o bin #{ws}/src/*`
+    `go build -buildvcs=false -o bin #{ws}/src/*`
 end
 
 def answered_days
