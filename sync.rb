@@ -5,8 +5,8 @@ require 'json'
 
 def status
     puts "Checking submitted answers..."
-    year = ENV['AOC_YEAR']
-    user_id = 31777 # TODO replace with env variable
+    year = ENV['AOC_YEAR'] || Time.now.strftime("%Y")
+    user_id = ENV['AOC_USER'] || 31777 # Hardcoded to me
     url = "https://adventofcode.com/#{year}/leaderboard/private/view/#{user_id}.json"
 
     uri = URI(url)

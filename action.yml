@@ -9,7 +9,6 @@ inputs:
     description: User ID 
   AOC_YEAR:
     description: Year of competition
-    required: true
 runs:
   using: 'docker'
   image: 'Dockerfile'
