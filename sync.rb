@@ -7,13 +7,15 @@ def status
     puts "Checking submitted answers..."
     year = ENV['AOC_YEAR'] || Time.now.strftime("%Y")
     user_id = ENV['AOC_USER'] || 31777 # Hardcoded to me
+    session = ENV['AOC_SESSION_COOKIE']
     url = "https://adventofcode.com/#{year}/leaderboard/private/view/#{user_id}.json"
+    puts "Year: #{year}, user: #{user_id}, session: #{session}"
 
     uri = URI(url)
     http = Net::HTTP.new(uri.host, uri.port)
     http.use_ssl = true
     req = Net::HTTP::Get.new(uri.request_uri)
-    cookie = CGI::Cookie.new('session', ENV['AOC_SESSION_COOKIE'])
+    cookie = CGI::Cookie.new('session', session)
     req['Cookie'] = cookie.to_s
     res = http.request(req)
 
